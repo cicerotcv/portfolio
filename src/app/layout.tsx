@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from 'next/font/google';
 
+import { Analytics } from '@vercel/analytics/next';
 import type { Metadata } from 'next';
 
 import { JsonLd } from '@/components/json-ld';
@@ -7,6 +8,9 @@ import { ThemeProvider } from '@/components/theme-provider';
 import { siteConfig } from '@/config/site.config';
 
 import './globals.css';
+
+const analyticsMode =
+  process.env.NODE_ENV === 'production' ? 'production' : 'development';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -106,6 +110,11 @@ export default function RootLayout({
         >
           {children}
         </ThemeProvider>
+
+        <Analytics
+          mode={analyticsMode}
+          debug={analyticsMode === 'development'}
+        />
       </body>
     </html>
   );
