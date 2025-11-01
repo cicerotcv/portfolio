@@ -1,0 +1,5 @@
+{
+  "tailwindCSS.classFunctions": ["cva", "cn", "twMerge", "clsx"],
+  "typescript.preferences.autoImportFileExcludePatterns": ["@radix-ui/*"],
+  "typescript.preferences.includePackageJsonAutoImports": "on"
+}
